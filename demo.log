@@ -35,82 +35,6 @@
 7fb17b814000-7fb17b834000 rwxp 00000000 00:00 0 
 7fb17b834000-7fb17b835000 ---p 00000000 00:00 0 
 7fb17b835000-7fb17bc68000 rwxp 00000000 00:00 0 
-7fb17bc68000-7fb1fbc67000 r-xs 00000000 00:0f 814270                     /dev/shm/c2_bitmap_info
-7fb1fbc67000-7fb1fbd67000 rwxs 00000000 00:04 1245222                    /SYSV2949146a (deleted)
-7fb1fbd67000-7fb1fc50e000 rwxs 00000000 00:04 1212453                    /SYSV29491467 (deleted)
-7fb1fc50e000-7fb1fcfe9000 rwxs 00000000 00:04 1179684                    /SYSV29491466 (deleted)
-7fb1fcfe9000-7fb1fd4e9000 rwxs 00000000 00:04 688149                     /SYSV39489999 (deleted)
-7fb1fd4e9000-7fb1fd5e9000 rwxs 00000000 00:04 1245222                    /SYSV2949146a (deleted)
-7fb1fd5e9000-7fb1fdd90000 rwxs 00000000 00:04 1212453                    /SYSV29491467 (deleted)
-7fb1fdd90000-7fb1fe86b000 rwxs 00000000 00:04 1179684                    /SYSV29491466 (deleted)
-7fb1fe86b000-7fb1fed6b000 rwxs 00000000 00:04 688149                     /SYSV39489999 (deleted)
-7fb1fed6b000-7fb1fee6b000 rwxs 00000000 00:04 1048608                    /SYSV2949145a (deleted)
-7fb1fee6b000-7fb1ff612000 rwxs 00000000 00:04 1015839                    /SYSV29491457 (deleted)
-7fb1ff612000-7fb2000ed000 rwxs 00000000 00:04 983070                     /SYSV29491456 (deleted)
-7fb200109000-7fb200125000 rwxs 00000000 00:04 950301                     /SYSV2949145c (deleted)
-7fb200125000-7fb200126000 rwxs 00000000 00:04 884763                     /SYSV29491459 (deleted)
-7fb200126000-7fb200626000 rwxs 00000000 00:04 688149                     /SYSV39489999 (deleted)
-7fb200626000-7fb2008f9000 rwxs 00000000 00:04 2064447                    /SYSV2012122c (deleted)
-7fb2008f9000-7fb200bcc000 rwxs 00000000 00:04 2031678                    /SYSV2012122b (deleted)
-7fb200bcc000-7fb2010a0000 r-xs 00000000 00:04 1474605                    /SYSV00da15e4 (deleted)
-7fb2010a0000-7fb2011a0000 rwxs 00000000 00:04 1245222                    /SYSV2949146a (deleted)
-7fb2011a0000-7fb201947000 rwxs 00000000 00:04 1212453                    /SYSV29491467 (deleted)
-7fb201947000-7fb202422000 rwxs 00000000 00:04 1179684                    /SYSV29491466 (deleted)
-7fb20243e000-7fb20245a000 rwxs 00000000 00:04 1146915                    /SYSV2949146c (deleted)
-7fb20245a000-7fb20245b000 rwxs 00000000 00:04 1081377                    /SYSV29491469 (deleted)
-7fb20245b000-7fb20295b000 rwxs 00000000 00:04 688149                     /SYSV39489999 (deleted)
-7fb20295b000-7fb2029aa000 rwxs 00000000 00:04 393228                     /SYSV00005fef (deleted)
-7fb2029aa000-7fb2029f9000 rwxs 00000000 00:04 360459                     /SYSV00005fee (deleted)
-7fb2029f9000-7fb202ccc000 rwxs 00000000 00:04 3309669                    /SYSV201212dc (deleted)
-7fb202ccc000-7fb202f9f000 rwxs 00000000 00:04 3276900                    /SYSV201212db (deleted)
-7fb202f9f000-7fb202fb8000 rwxs 00000000 00:04 1835064                    /SYSV20121225 (deleted)
-7fb202fb8000-7fb203412000 rwxs 00000000 00:04 1671219                    /SYSV0003632b (deleted)
-7fb203412000-7fb20386c000 rwxs 00000000 00:04 1638450                    /SYSV0003632a (deleted)
-7fb20386c000-7fb20386d000 rwxs 00000000 00:04 1572912                    /SYSV00036320 (deleted)
-7fb20386d000-7fb208006000 rwxs 00000000 00:04 24805551                   /SYSV00060000 (deleted)
-7fb208006000-7fb24a7c1000 rwxs 00000000 00:04 24641700                   /SYSV00001f87 (deleted)
-7fb24a7c1000-7fb265c73000 rwxs 00000000 00:04 24543405                   /SYSV00400001 (deleted)
-7fb265c73000-7fb266138000 rwxs 00000000 00:04 4128894                    /SYSV00012111 (deleted)
-7fb266138000-7fb266212000 r-xs 00000000 00:0f 275812278                  /dev/shm/c2_conf_1_sched_dispatch_msgdb_if@ab
-7fb266212000-7fb2662ec000 r-xs 00000000 00:0f 275812269                  /dev/shm/c2_conf_0_sched_dispatch_msgdb_if@ab
-7fb2662ec000-7fb2663ca000 r-xs 00000000 00:0f 275810049                  /dev/shm/c2_conf_1_server_msgdb_if@ab
-7fb2663ca000-7fb2664a8000 r-xs 00000000 00:0f 275810048                  /dev/shm/c2_conf_0_server_msgdb_if@ab
-7fb2664a8000-7fb266582000 r-xs 00000000 00:0f 824965                     /dev/shm/c2_conf_1_sched_dispatch_msgdb_if@tj
-7fb266582000-7fb26665c000 r-xs 00000000 00:0f 824964                     /dev/shm/c2_conf_0_sched_dispatch_msgdb_if@tj
-7fb26665c000-7fb26673a000 r-xs 00000000 00:0f 802204                     /dev/shm/c2_conf_1_server_msgdb_if@tj
-7fb26673a000-7fb266818000 r-xs 00000000 00:0f 802202                     /dev/shm/c2_conf_0_server_msgdb_if@tj
-7fb266818000-7fb2668f2000 r-xs 00000000 00:0f 824963                     /dev/shm/c2_conf_1_sched_dispatch_msgdb_if@sh
-7fb2668f2000-7fb2669cc000 r-xs 00000000 00:0f 824962                     /dev/shm/c2_conf_0_sched_dispatch_msgdb_if@sh
-7fb2669cc000-7fb266aaa000 r-xs 00000000 00:0f 802201                     /dev/shm/c2_conf_1_server_msgdb_if@sh
-7fb266aaa000-7fb266b88000 r-xs 00000000 00:0f 802200                     /dev/shm/c2_conf_0_server_msgdb_if@sh
-7fb266b88000-7fb266c62000 r-xs 00000000 00:0f 824961                     /dev/shm/c2_conf_1_sched_dispatch_msgdb_if@sz
-7fb266c62000-7fb266d3c000 r-xs 00000000 00:0f 824960                     /dev/shm/c2_conf_0_sched_dispatch_msgdb_if@sz
-7fb266d3c000-7fb266e1a000 r-xs 00000000 00:0f 802199                     /dev/shm/c2_conf_1_server_msgdb_if@sz
-7fb266e1a000-7fb266ef8000 r-xs 00000000 00:0f 802198                     /dev/shm/c2_conf_0_server_msgdb_if@sz
-7fb266ef8000-7fb267005000 r-xs 00000000 00:0f 802213                     /dev/shm/c2_conf_1_unit_msgdb_if@sz
-7fb267005000-7fb267112000 r-xs 00000000 00:0f 802207                     /dev/shm/c2_conf_0_unit_msgdb_if@sz
-7fb267112000-7fb267197000 rwxp 00000000 00:00 0 
-7fb267197000-7fb267292000 r-xs 00000000 00:0f 824927                     /dev/shm/c2_conf_1_sched_dispatch_c2cmsg@sz
-7fb267292000-7fb26738d000 r-xs 00000000 00:0f 824926                     /dev/shm/c2_conf_0_sched_dispatch_c2cmsg@sz
-7fb26738d000-7fb2674ee000 r-xs 00000000 00:0f 802055                     /dev/shm/c2_conf_1_server_c2cmsg@sz
-7fb2674ee000-7fb26764f000 r-xs 00000000 00:0f 802054                     /dev/shm/c2_conf_0_server_c2cmsg@sz
-7fb26764f000-7fb26775c000 r-xs 00000000 00:0f 802057                     /dev/shm/c2_conf_1_unit_c2cmsg@sz
-7fb26775c000-7fb267869000 r-xs 00000000 00:0f 802056                     /dev/shm/c2_conf_0_unit_c2cmsg@sz
-7fb267869000-7fb267a67000 rwxp 00000000 00:00 0 
-7fb267a67000-7fb267a68000 r-xs 00000000 00:0f 824918                     /dev/shm/c2_conf_sched_ctrl
-7fb267a68000-7fb267a69000 rwxs 00000000 00:0f 824918                     /dev/shm/c2_conf_sched_ctrl
-7fb267a69000-7fb267b64000 r-xs 00000000 00:0f 824923                     /dev/shm/c2_conf_1_sched_dispatch_status@sz
-7fb267b64000-7fb267c5f000 r-xs 00000000 00:0f 824922                     /dev/shm/c2_conf_0_sched_dispatch_status@sz
-7fb267c5f000-7fb267dc0000 r-xs 00000000 00:0f 802026                     /dev/shm/c2_conf_1_server_status@sz
-7fb267dc0000-7fb267f21000 r-xs 00000000 00:0f 802025                     /dev/shm/c2_conf_0_server_status@sz
-7fb267f21000-7fb26802e000 r-xs 00000000 00:0f 802029                     /dev/shm/c2_conf_1_unit_status@sz
-7fb26802e000-7fb26813b000 r-xs 00000000 00:0f 802028                     /dev/shm/c2_conf_0_unit_status@sz
-7fb26813b000-7fb26825a000 r-xs 00000000 00:0f 802016                     /dev/shm/c2_conf_1_region
-7fb26825a000-7fb268379000 r-xs 00000000 00:0f 802015                     /dev/shm/c2_conf_0_region
-7fb268379000-7fb268452000 r-xs 00000000 00:0f 802018                     /dev/shm/c2_conf_1_self
-7fb268452000-7fb26852b000 r-xs 00000000 00:0f 802017                     /dev/shm/c2_conf_0_self
-7fb26852b000-7fb268634000 r-xs 00000000 00:0f 802043                     /dev/shm/c2_conf_1_extra_for_conn
-7fb268634000-7fb26873d000 r-xs 00000000 00:0f 802042                     /dev/shm/c2_conf_0_extra_for_conn
 7fb26873d000-7fb26875a000 r-xp 00000000 08:01 368846                     /lib64/libselinux.so.1
 7fb26875a000-7fb268959000 ---p 0001d000 08:01 368846                     /lib64/libselinux.so.1
 7fb268959000-7fb26895a000 r-xp 0001c000 08:01 368846                     /lib64/libselinux.so.1
@@ -209,19 +133,6 @@
 7fb26bccb000-7fb26bccc000 rwxp 00007000 08:01 368843                     /lib64/librt-2.12.so
 7fb26bccc000-7fb26bcec000 r-xp 00000000 08:01 369068                     /lib64/ld-2.12.so
 7fb26bd06000-7fb26bd3b000 r-xs 00000000 08:01 90269                      /var/db/nscd/hosts
-7fb26bd3b000-7fb26bd3c000 rwxs 00000000 00:04 1349386447                 /SYSV00301240 (deleted)
-7fb26bd3c000-7fb26bd6a000 rwxs 00000000 00:04 3997818                    /SYSV00015370 (deleted)
-7fb26bd6a000-7fb26bd86000 rwxs 00000000 00:04 1146915                    /SYSV2949146c (deleted)
-7fb26bd86000-7fb26bda2000 rwxs 00000000 00:04 1146915                    /SYSV2949146c (deleted)
-7fb26bda2000-7fb26bdbb000 rwxs 00000000 00:04 1835064                    /SYSV20121225 (deleted)
-7fb26bdbb000-7fb26bdcc000 rwxp 00000000 00:00 0 
-7fb26bdd4000-7fb26bdd5000 rwxs 00000000 00:04 3473514                    /SYSV00101234 (deleted)
-7fb26bdd5000-7fb26bdd6000 rwxp 00000000 00:00 0 
-7fb26bdd6000-7fb26bdd7000 rwxs 00000000 00:04 1081377                    /SYSV29491469 (deleted)
-7fb26bdd7000-7fb26bdd8000 rwxs 00000000 00:04 1081377                    /SYSV29491469 (deleted)
-7fb26bdd8000-7fb26bdd9000 rwxp 00000000 00:00 0 
-7fb26bdd9000-7fb26bdda000 r-xs 00000000 00:0f 802013                     /dev/shm/c2_conf_static_ctrl
-7fb26bdda000-7fb26bddb000 rwxs 00000000 00:0f 802013                     /dev/shm/c2_conf_static_ctrl
 7fb26bddb000-7fb26bdde000 r-xp 00000000 08:01 368776                     /lib64/libonion_security.so.1.0.13
 7fb26bdde000-7fb26bede000 ---p 00003000 08:01 368776                     /lib64/libonion_security.so.1.0.13
 7fb26bede000-7fb26bedf000 rwxp 00003000 08:01 368776                     /lib64/libonion_security.so.1.0.13
