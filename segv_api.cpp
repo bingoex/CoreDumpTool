@@ -1137,7 +1137,7 @@ int SEGV_Init(FCheckFlag pfCheckFlag, SegvLogFile * pstLog,
 	}
 
 	//控制Coredump写入哪些段
-	memset(sPath, sizeof(sPath), 0);
+	memset(sPath, 0, sizeof(sPath));
 	snprintf(sPath, sizeof(sPath), "/proc/%d/coredump_filter", getpid());
 	pFile = fopen(sPath, "w");
 	if (NULL != pFile) {
@@ -1151,7 +1151,7 @@ int SEGV_Init(FCheckFlag pfCheckFlag, SegvLogFile * pstLog,
 	}
 
 	//获取程序路径
-	memset(sPath, sizeof(sPath), 0);
+	memset(sPath, 0, sizeof(sPath));
 	snprintf(sPath, sizeof(sPath) - 1, "/proc/%d/exe", getpid());
 	memset(g_sLinkPath, 0, sizeof(g_sLinkPath));
 	if(0 > readlink(sPath, g_sLinkPath, sizeof(g_sLinkPath))) {
