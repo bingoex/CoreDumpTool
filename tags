@@ -1,0 +1,104 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+BackTrace	segv_tool.sh	/^function BackTrace()$/;"	f
+CallSaveMe	segv_api.cpp	/^static inline void CallSaveMe(long lSP)$/;"	f	file:
+CheckStub	segv_api.cpp	/^static int CheckStub()$/;"	f	file:
+CheckSwichFlag	segv_api.cpp	/^static int CheckSwichFlag()$/;"	f	file:
+CreateNewShm	segv_api.cpp	/^static void* CreateNewShm(int iShmKey, int iSize)$/;"	f	file:
+CurrDateTimeStr	segv_api.cpp	/^static char *CurrDateTimeStr(void)$/;"	f	file:
+DIRCT_LOG	segv_api.cpp	33;"	d	file:
+DateTimeStr	segv_api.cpp	/^static char *DateTimeStr(const int32_t *mytime)$/;"	f	file:
+DateTimeStrRaw	segv_api.cpp	/^static char *DateTimeStrRaw(const time_t tTime)$/;"	f	file:
+DealSegv	segv_api.cpp	/^static void DealSegv(int iSigNo, siginfo_t * pstSigInfo, void * pContext)$/;"	f	file:
+FCheckSwitchFlag	segv_api.h	/^typedef int (* FCheckSwitchFlag)();$/;"	t
+FindStackSection	segv_api.cpp	/^static char* FindStackSection(const char *pMapStr, long lSP)$/;"	f	file:
+FlushMySnprintf	segv_api.cpp	/^static void FlushMySnprintf()$/;"	f	file:
+FreqLimit	segv_api.cpp	/^static int FreqLimit()$/;"	f	file:
+GetContextInfo	segv_api.cpp	/^static long GetContextInfo(int iSigNo, siginfo_t * pstSigInfo, void * pContext, uint32_t tPid, pthread_t tTid)$/;"	f	file:
+GetMemInfo	segv_api.cpp	/^static int GetMemInfo(const char *pMapStr, MemInfo *pstMemInfo, const char *pPath, long lSP)$/;"	f	file:
+InitLogFile	segv_api.cpp	/^static int32_t InitLogFile(LogFile* pstLogFile, const char* sLogBaseName, int32_t iShiftType, int32_t iMaxLogNum, int32_t iMAX)$/;"	f	file:
+InitMySnprintf	segv_api.cpp	/^static void InitMySnprintf()$/;"	f	file:
+LOG_WITH_TIME	segv_api.cpp	26;"	d	file:
+Log	segv_api.cpp	/^static int Log(LogFile* pstLogFile, const char* sFormat, ...)$/;"	f	file:
+LogWithTime	segv_api.cpp	/^int LogWithTime(LogFile* pstLogFile, int iLogTime,const char* sFormat, ...)$/;"	f
+MAX_DATA_BUFFER	segv_api.h	18;"	d
+MAX_LINE_LENGTH	segv_api.cpp	689;"	d	file:
+MAX_STACK_BUFFER	segv_api.h	19;"	d
+MAX_THREAD_NUM	segv_api.h	14;"	d
+MYPRINT	segv_api.cpp	684;"	d	file:
+MYPRINT2	segv_api.cpp	687;"	d	file:
+MemInfo	segv_api.h	/^} MemInfo;$/;"	t	typeref:struct:__anon2
+MySnprintf	segv_api.cpp	/^static void MySnprintf(int iLogTime, const char* sFormat, ...) \/\/same action like  LOG_WITH_TIME or DIRCT_LOG$/;"	f	file:
+OBJ	Makefile	/^OBJ := segv_api.o$/;"	m
+PMAP_ADDR_LEN	segv_api.cpp	366;"	d	file:
+PMAP_ADDR_LEN	segv_api.cpp	368;"	d	file:
+PrintBlank	segv_tool.sh	/^function PrintBlank()$/;"	f
+ReAssignSignal	segv_api.cpp	/^static void ReAssignSignal(int iSigNo)$/;"	f	file:
+SEGV_DECLARE_FIRST	segv_api.h	91;"	d
+SEGV_DECLARE_LAST	segv_api.h	97;"	d
+SEGV_DISABLE_RESTART	segv_api.h	66;"	d
+SEGV_ENABLE_RESTART	segv_api.h	65;"	d
+SEGV_Init	segv_api.cpp	/^int SEGV_Init(FCheckSwitchFlag pfCheckSwichFlag, LogFile * pstLog,$/;"	f
+SEGV_THREAD_ENTRY	segv_api.h	121;"	d
+SEGV_THREAD_ENTRY	segv_api.h	146;"	d
+SEGV_TREAT	segv_api.h	107;"	d
+SEGV_TREAT	segv_api.h	132;"	d
+SEGV_VAL_STUB	segv_api.h	12;"	d
+SegvLogFile	segv_api.h	/^} SegvLogFile;$/;"	t	typeref:struct:__anon4
+SegvShm	segv_api.h	/^} SegvShm;$/;"	t	typeref:struct:__anon3
+SegvToolUsage	segv_tool.sh	/^function SegvToolUsage()$/;"	f
+ShiftFiles	segv_api.cpp	/^static int ShiftFiles(LogFile* pstLogFile)$/;"	f	file:
+ShmCreate	segv_api.cpp	/^static void* ShmCreate(int iShmKey, int iSize)$/;"	f	file:
+StrToNum	segv_api.cpp	/^static unsigned long StrToNum(const char *pStr, int iBase)$/;"	f	file:
+TARGET	Makefile	/^TARGET := libsegv.a$/;"	m
+THREAD_HASH_MODES	segv_api.h	15;"	d
+ThreadHashNode	segv_api.h	/^} ThreadHashNode;$/;"	t	typeref:struct:__anon1
+_GNU_SOURCE	segv_api.cpp	2;"	d	file:
+__SEGV_API_H__	segv_api.h	2;"	d
+__USE_GNU	segv_api.cpp	6;"	d	file:
+crc32_table	segv_api.cpp	/^static uint32_t crc32_table[256] = {$/;"	v	file:
+crc_32	segv_api.cpp	/^static uint32_t crc_32(uint32_t sed, unsigned char const * data, uint32_t length)$/;"	f	file:
+disable_restart_on_core	segv_api.cpp	/^static int disable_restart_on_core = 0;$/;"	v	file:
+dwDataLen	segv_api.h	/^	uint32_t dwDataLen;      \/\/ Data区数据大小$/;"	m	struct:__anon2
+dwKey	segv_api.h	/^	uint32_t dwKey;$/;"	m	struct:__anon1
+dwStackLen	segv_api.h	/^	uint32_t dwStackLen;     \/\/ Stack区数据大小$/;"	m	struct:__anon2
+g_Main_Stack_SP	segv_api.cpp	/^static volatile unsigned long g_Main_Stack_SP;\/\/ 保存main函数栈顶，32位机器为ESP(32bit)，64位为RSP(64bit)$/;"	v	file:
+g_SegvMute	segv_api.cpp	/^pthread_mutex_t g_SegvMute;$/;"	v
+g__bEnv	segv_api.cpp	/^sigjmp_buf g__bEnv;$/;"	v
+g_iSendToDoRestartFlag	segv_api.cpp	/^static int g_iSendToDoRestartFlag = 0;$/;"	v	file:
+g_pfCheckSwichFlag	segv_api.cpp	/^FCheckSwitchFlag g_pfCheckSwichFlag = NULL;$/;"	v
+g_pstLog	segv_api.cpp	/^static LogFile *g_pstLog = NULL;$/;"	v	file:
+g_sCurrentWorkDir	segv_api.cpp	/^static char g_sCurrentWorkDir[512];$/;"	v	file:
+g_sLinkPath	segv_api.cpp	/^static char g_sLinkPath[500]; \/\/进程名字$/;"	v	file:
+g_stLog	segv_api.cpp	/^static LogFile g_stLog;$/;"	v	file:
+g_tTid	segv_api.cpp	/^__thread  pthread_t g_tTid = (pthread_t)-1;$/;"	v
+g_uStub_first	segv_api.cpp	/^static volatile uint32_t * g_uStub_first = NULL; \/\/指向自动变量桩$/;"	v	file:
+g_uStub_last	segv_api.cpp	/^static volatile uint32_t * g_uStub_last = NULL; \/\/指向自动变量桩$/;"	v	file:
+g_ulStub	segv_api.cpp	/^static uint32_t g_ulStub = SEGV_VAL_STUB; \/\/桩:全局变量$/;"	v	file:
+iDealSegvLogLeft	segv_api.cpp	/^static int iDealSegvLogLeft = sizeof(szDealSegvLog);$/;"	v	file:
+iDealSegvLogLen	segv_api.cpp	/^static int iDealSegvLogLen = 0;$/;"	v	file:
+iMaxLogNum	segv_api.h	/^	int     iMaxLogNum;$/;"	m	struct:__anon4
+iShiftType	segv_api.h	/^	int     iShiftType;\/\/ 0 -> shift by size,  1 -> shift by LogCount, 2 -> shift by interval, 3 ->shift by day, 4 -> shift by hour, 5 -> shift by min$/;"	m	struct:__anon4
+lLastShiftTime	segv_api.h	/^	time_t     lLastShiftTime;$/;"	m	struct:__anon4
+lLogCount	segv_api.h	/^	int32_t    lLogCount;$/;"	m	struct:__anon4
+lMaxCount	segv_api.h	/^	int32_t    lMaxCount;$/;"	m	struct:__anon4
+lMaxSize	segv_api.h	/^	int32_t    lMaxSize;$/;"	m	struct:__anon4
+lSP	segv_api.h	/^	unsigned long lSP;       \/\/ 32位或者64位，存放线程入口函数SP寄存器值$/;"	m	struct:__anon1
+main	demo.cpp	/^int main(int argc, char* argv[])$/;"	f
+pLogFile	segv_api.h	/^	FILE    *pLogFile;$/;"	m	struct:__anon4
+qDataEndAddr	segv_api.h	/^	uint64_t qDataEndAddr;   \/\/ Data区结束地址$/;"	m	struct:__anon2
+qDataStartAddr	segv_api.h	/^	uint64_t qDataStartAddr; \/\/ Data区首地址$/;"	m	struct:__anon2
+qStackEndAddr	segv_api.h	/^	uint64_t qStackEndAddr;  \/\/ Stack区结束地址$/;"	m	struct:__anon2
+qStackStartAddr	segv_api.h	/^	uint64_t qStackStartAddr;\/\/ Stack区首地址$/;"	m	struct:__anon2
+qTime	segv_api.h	/^	uint64_t qTime;                   \/\/ 写入数据的时间$/;"	m	struct:__anon3
+sBaseFileName	segv_api.h	/^	char    sBaseFileName[80];$/;"	m	struct:__anon4
+sData	segv_api.h	/^	uint8_t sData[MAX_DATA_BUFFER];   \/\/ 全局变量 & 静态变量$/;"	m	struct:__anon3
+sLogFileName	segv_api.h	/^	char    sLogFileName[80];$/;"	m	struct:__anon4
+sPath	segv_api.h	/^	uint8_t sPath[1024];              \/\/ 进程路径$/;"	m	struct:__anon3
+sStack	segv_api.h	/^	uint8_t sStack[MAX_STACK_BUFFER]; \/\/ 栈空间$/;"	m	struct:__anon3
+stMemInfo	segv_api.h	/^	MemInfo stMemInfo;$/;"	m	struct:__anon3
+szDealSegvLog	segv_api.cpp	/^static char szDealSegvLog[16*1024];$/;"	v	file:
