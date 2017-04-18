@@ -6,8 +6,8 @@ endif
 
 CFLAGS += -g -Wall -D_GNU_SOURCE -D_MP_MODE -Wno-write-strings -Werror -DTIXML_USE_STL
 
-OBJ := segv_api.o
-TARGET := libsegv.a
+OBJ := core_api.o
+TARGET := libcore.a
 
 %.o: %.cpp
 	@echo -e Compiling $<
