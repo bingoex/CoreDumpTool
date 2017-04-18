@@ -6,34 +6,26 @@
 #define __USE_GNU
 #endif
 
-#include <unistd.h>
-#include <sys/ucontext.h>
-#include <execinfo.h>
-#include <sys/time.h>
-#include <sys/types.h>
-#include <sys/socket.h>
-#include <arpa/inet.h>
-#include <sys/stat.h>
-#include <sys/shm.h>
-#include <netinet/in.h>
-#include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdarg.h>
 #include <errno.h>
+#include <string.h>
+#include <unistd.h>
+#include <execinfo.h> //backtrace
+#include <sys/time.h>
+#include <sys/stat.h>
+#include <sys/shm.h>
 #include <limits.h>
-#include <fcntl.h>
-#include <netdb.h>
 #include <pthread.h>
-#include <signal.h>
 
 #include "segv_api.h"
 
 
 //直接写到文件
-#define MYLOG(fmt, args...) do {\
+#define LOG_WITH_TIME(fmt, args...) do {\
 	if(g_pstLog){\
-		DirectlySegvLog(g_pstLog, 2, "%s:%d(%s): SEGV: " fmt, __FILE__, __LINE__, __FUNCTION__ , ## args);\
+		LogWithTime(g_pstLog, 2, "%s:%d(%s): SEGV: " fmt, __FILE__, __LINE__, __FUNCTION__ , ## args);\
 	}\
 } while(0);
 
@@ -223,7 +215,7 @@ static int32_t SegvInitLogFile(SegvLogFile* pstLogFile, const char* sLogBaseName
 }
 
 
-int DirectlySegvLog(SegvLogFile* pstLogFile, int iLogTime,const char* sFormat, ...)
+int LogWithTime(SegvLogFile* pstLogFile, int iLogTime,const char* sFormat, ...)
 {
 	va_list ap;
 	struct timeval stLogTv;
@@ -264,17 +256,17 @@ static int CheckFlag()
 static int CheckStub()
 {
 	if(NULL == g_pulAutoStub_first || *g_pulAutoStub_first != SEGV_VAL_STUB){
-		MYLOG("auto-varible stub_first check failed.");
+		LOG_WITH_TIME("auto-varible stub_first check failed.");
 		return 0;
 	}
 
 	if(NULL == g_pulAutoStub_last || *g_pulAutoStub_last != SEGV_VAL_STUB){
-		MYLOG("auto-varible stub_last check failed.");
+		LOG_WITH_TIME("auto-varible stub_last check failed.");
 		return 0;
 	}
 
 	if(g_ulStub != SEGV_VAL_STUB){
-		MYLOG("static-varible stub check failed.");
+		LOG_WITH_TIME("static-varible stub check failed.");
 		return 0;
 	}
 
@@ -298,11 +290,11 @@ static int CheckCnt()
 
 	//参数设定依据：经测试 siglongjmp的效率大约为5000/s
 	if(ulSegvCnt >= 5000){
-		MYLOG("ulSegvCnt too large.");
+		LOG_WITH_TIME("ulSegvCnt too large.");
 		return 0;
 	}
 	if(ulSegvFreq >= 5000){ 
-		MYLOG("ulSegvFreq too large.");
+		LOG_WITH_TIME("ulSegvFreq too large.");
 		return 0;
 	}
 
@@ -536,7 +528,7 @@ static int GetMemInfo(const char *pMapStr, MemInfo *pstMemInfo, const char *pPat
 		if (lTmp != 0) {
 			pstMemInfo->qDataStartAddr = lTmp;
 		} else {
-			MYLOG("Get Data Section Addr Error:%s", sTmp);
+			LOG_WITH_TIME("Get Data Section Addr Error:%s", sTmp);
 			return -1;
 		}
 
@@ -553,7 +545,7 @@ static int GetMemInfo(const char *pMapStr, MemInfo *pstMemInfo, const char *pPat
 		if (lTmp != 0) {
 			pstMemInfo->qDataEndAddr = lTmp;
 		} else {
-			MYLOG("Get Data Seciont End Addr Error:%s", sTmp);
+			LOG_WITH_TIME("Get Data Seciont End Addr Error:%s", sTmp);
 			return -3;
 		}
 
@@ -561,10 +553,10 @@ static int GetMemInfo(const char *pMapStr, MemInfo *pstMemInfo, const char *pPat
 		// 这里先记录数据段地址，后面如果找到BSS段地址，再更新结束地址，BSS总是紧跟数据段
 		if (pstMemInfo->qDataStartAddr == 0 || pstMemInfo->qDataEndAddr <= pstMemInfo->qDataStartAddr) {
 #if __WORDSIZE == 64
-			MYLOG("Get DataStartAddr >= DataEndAddr, Start:0x%lx, End:0x%lx",
+			LOG_WITH_TIME("Get DataStartAddr >= DataEndAddr, Start:0x%lx, End:0x%lx",
 					pstMemInfo->qDataStartAddr, pstMemInfo->qDataEndAddr);
 #else
-			MYLOG("Get DatatartAddr >= DataEndAddr, Start:0x%x, End:0x%x",
+			LOG_WITH_TIME("Get DatatartAddr >= DataEndAddr, Start:0x%x, End:0x%x",
 					(uint32_t)pstMemInfo->qDataStartAddr, (uint32_t)pstMemInfo->qDataEndAddr);
 #endif
 			return -17;
@@ -591,7 +583,7 @@ static int GetMemInfo(const char *pMapStr, MemInfo *pstMemInfo, const char *pPat
 			if (lTmp != 0) {
 				pstMemInfo->qStackStartAddr = lTmp;
 			} else {
-				MYLOG("Get Stack Begin Addr Error:%s", sTmp);
+				LOG_WITH_TIME("Get Stack Begin Addr Error:%s", sTmp);
 				return -9;
 			}
 
@@ -603,17 +595,17 @@ static int GetMemInfo(const char *pMapStr, MemInfo *pstMemInfo, const char *pPat
 			if (lTmp != 0) {
 				pstMemInfo->qStackEndAddr = lTmp;
 			} else {
-				MYLOG("Get Stack End Addr Error:%s", sTmp);
+				LOG_WITH_TIME("Get Stack End Addr Error:%s", sTmp);
 				return -11;
 			}
 
 			// 检查下地址的有效性
 			if (pstMemInfo->qStackStartAddr == 0 || pstMemInfo->qStackEndAddr <= pstMemInfo->qStackStartAddr) {
 #if __WORDSIZE == 64
-				MYLOG("Get StackStartAddr >= StackEndAddr, Start:0x%lx, End:0x%lx",
+				LOG_WITH_TIME("Get StackStartAddr >= StackEndAddr, Start:0x%lx, End:0x%lx",
 						pstMemInfo->qStackStartAddr, pstMemInfo->qStackEndAddr);
 #else
-				MYLOG("Get StackStartAddr >= StackEndAddr, Start:0x%x, End:0x%x",
+				LOG_WITH_TIME("Get StackStartAddr >= StackEndAddr, Start:0x%x, End:0x%x",
 						(uint32_t)pstMemInfo->qStackStartAddr, (uint32_t)pstMemInfo->qStackEndAddr);
 #endif
 				return -13;
@@ -658,17 +650,17 @@ static int GetMemInfo(const char *pMapStr, MemInfo *pstMemInfo, const char *pPat
 				if (lTmp != 0) {
 					pstMemInfo->qDataEndAddr = lTmp;
 				} else {
-					MYLOG("Get Heap End Addr Error:%s", sTmp);
+					LOG_WITH_TIME("Get Heap End Addr Error:%s", sTmp);
 					return -15;
 				}
 
 				// 检查下地址的有效性
 				if (pstMemInfo->qDataStartAddr == 0 || pstMemInfo->qDataEndAddr <= pstMemInfo->qDataStartAddr) {
 #if __WORDSIZE == 64
-					MYLOG("Get BSS DataStartAddr >= DataEndAddr, Start:0x%lx, End:0x%lx",
+					LOG_WITH_TIME("Get BSS DataStartAddr >= DataEndAddr, Start:0x%lx, End:0x%lx",
 							pstMemInfo->qDataStartAddr, pstMemInfo->qDataEndAddr);
 #else
-					MYLOG("Get BSS DatatartAddr >= DataEndAddr, Start:0x%x, End:0x%x",
+					LOG_WITH_TIME("Get BSS DatatartAddr >= DataEndAddr, Start:0x%x, End:0x%x",
 							(uint32_t)pstMemInfo->qDataStartAddr, (uint32_t)pstMemInfo->qDataEndAddr);
 #endif
 					return -17;
@@ -748,7 +740,7 @@ static void InitMySnprintf()
 	iDealSegvLogLen = 0;
 }
 
-//MYPRINT same as MYLOG
+//MYPRINT same as LOG_WITH_TIME
 #define MYPRINT(fmt, args...) MySnprintf(2, "%s:%d(%s): SEGV: " fmt, __FILE__, __LINE__, __FUNCTION__ , ## args)
 
 //MYPRINT2 same as MYLOG2
@@ -756,7 +748,7 @@ static void InitMySnprintf()
 
 #define  MAX_LINE_LENGTH  256
 
-static void MySnprintf(int iLogTime, const char* sFormat, ...) //same action like  MYLOG or MYLOG2
+static void MySnprintf(int iLogTime, const char* sFormat, ...) //same action like  LOG_WITH_TIME or MYLOG2
 {
 	int iRet = 0;
 	struct timeval stLogTv;
@@ -1068,14 +1060,14 @@ static void DealSegv(int iSigNo, siginfo_t * pstSigInfo, void * pContext)
 
 	if (tTid == g_tTid || iLockNum > 1) { //重复Coredump发生时候
 		FlushMySnprintf(); //上次Core处理过程没机会输出的，这里补一下
-		MYLOG("Pid %u Tid 0x%lx DealSegv ReEnter\n", tPid, tTid);
+		LOG_WITH_TIME("Pid %u Tid 0x%lx DealSegv ReEnter\n", tPid, tTid);
 	} else {
 		g_tTid = tTid;
 
 		fprintf(stderr, "\n\n================ coredump ================\n");\
 		
 		MYLOG2("\n\n================\n");
-		MYLOG("Pid %u Tid 0x%lx DealSegv FirstEnter\n", tPid, tTid);
+		LOG_WITH_TIME("Pid %u Tid 0x%lx DealSegv FirstEnter\n", tPid, tTid);
 	}
 
 	if (0 == iOnlyAnalyseOnce) {
@@ -1096,7 +1088,7 @@ static void DealSegv(int iSigNo, siginfo_t * pstSigInfo, void * pContext)
 		if(0 == g_iSendToDoRestartFlag) {
 			g_iSendToDoRestartFlag = 1;
 			//DoRestart(); //DoRestart thread may differ CallSaveMe thread
-			//MYLOG("Pid %u Tid 0x%lx DealSegv DoRestart\n", tPid, tTid);
+			//LOG_WITH_TIME("Pid %u Tid 0x%lx DealSegv DoRestart\n", tPid, tTid);
 		}
 	}
 
@@ -1105,7 +1097,7 @@ static void DealSegv(int iSigNo, siginfo_t * pstSigInfo, void * pContext)
 	}
 
 	if (iConflict) { //iConflict>0说明加锁冲突而放弃
-		MYLOG("Pid %u Tid 0x%lx Meet DealSegv Conflict=%d\n", tPid, tTid, iConflict);
+		LOG_WITH_TIME("Pid %u Tid 0x%lx Meet DealSegv Conflict=%d\n", tPid, tTid, iConflict);
 	}
 
 	//无论是否重复core，都会执行到这里
@@ -1264,7 +1256,7 @@ void SEGV_SaveThreadEntrySP(unsigned long lEntrySP)
 	GenHashKey(&dwKey, (uint32_t)tPid, (uint64_t)tTid);
 	pstThreadHashNode = GetThreadHashNode(dwKey, 1);
 	if (!pstThreadHashNode) {
-		MYLOG("SEGV_SaveThreadEntrySP, Get Empty Hash Node Error.");
+		LOG_WITH_TIME("SEGV_SaveThreadEntrySP, Get Empty Hash Node Error.");
 		return;
 	}
 	pstThreadHashNode->lSP = lEntrySP;
@@ -1284,7 +1276,7 @@ static unsigned long SEGV_GetThreadEntrySP(int tPid, pthread_t tTid)
 	GenHashKey(&dwKey, (uint32_t)tPid, (uint64_t)tTid);
 	pstThreadHashNode = GetThreadHashNode(dwKey, 0);
 	if (!pstThreadHashNode) {
-		MYLOG("SEGV_GetThreadEntrySP, GetThreadHashNode Error, dwKey:%u", dwKey);
+		LOG_WITH_TIME("SEGV_GetThreadEntrySP, GetThreadHashNode Error, dwKey:%u", dwKey);
 		return 0;
 	}
 	return pstThreadHashNode->lSP;
