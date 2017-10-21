@@ -38,38 +38,38 @@ int getcontext(ucontext_t *ucp) 该函数用来将当前执行状态上下文
 
 sigsetjmp()会保存目前堆栈环境，然后将目前的地址作一个记号，而在程序其他地方调用siglongjmp()时便会直接跳到这个记号位置，然后还原堆栈，继续程序的执行。当sigsetjmp()返回0时代表已经做好记号上，若返回非0则代表由siglongjmp（）跳转回来。
 
-控制Coredump写入哪些段
-/proc/%d/coredump_filter
+控制Coredump写入哪些段</br>
+/proc/%d/coredump_filter</br>
 - (bit 0) anonymous private memory（匿名私有内存段）</br>
 - (bit 1) anonymous shared memory（匿名共享内存段）</br>
-- (bit 2) file-backed private memory（file-backed 私有内存段）
-- (bit 3) file-backed shared memory（file-bakced 共享内存段）
-- (bit 4) ELF header pages in file-backed private memory areas (it is effective only if the bit 2 is cleared)（ELF 文件映射，只有在bit 2 复位的时候才起作用）
-- (bit 5) hugetlb private memory（大页面私有内存）
-- (bit 6) hugetlb shared memory（大页面共享内存）
-http://stackoverflow.com/questions/8836459/minimal-core-dump-stack-trace-current-frame-only
+- (bit 2) file-backed private memory（file-backed 私有内存段）</br>
+- (bit 3) file-backed shared memory（file-bakced 共享内存段）</br>
+- (bit 4) ELF header pages in file-backed private memory areas (it is effective only if the bit 2 is cleared)（ELF 文件映射，只有在bit 2 复位的时候才起作用）</br>
+- (bit 5) hugetlb private memory（大页面私有内存）</br>
+- (bit 6) hugetlb shared memory（大页面共享内存）</br>
+http://stackoverflow.com/questions/8836459/minimal-core-dump-stack-trace-current-frame-only</br>
 
-打印信息
-相关堆栈信息：
-iSigNo//信号编号
-REG_CSGSFS\REG_CS	//CS段
-REG_RIP\REG_EIP 		//IP寄存器
-REG_RSP\REG_ESP 		//coredump时的栈寄存器
-REG_RBP\REG_EBP 		//基址寄存器
-pstSigInfo->si_errno		//siginfo_t结构
-pstSigInfo->si_code 		//信号产生的原因
-pstSigInfo->si_addr 		//触发的内存地址，对SIGILL,SIGFPE,SIGSEGV,SIGBUS 信号有意义
-Main函数的SP值
-进程函数名
-Pid
-Tid//线程id
+打印信息</br>
+相关堆栈信息：</br>
+iSigNo//信号编号</br>
+REG_CSGSFS\REG_CS	//CS段</br>
+REG_RIP\REG_EIP 		//IP寄存器</br>
+REG_RSP\REG_ESP 		//coredump时的栈寄存器</br>
+REG_RBP\REG_EBP 		//基址寄存器</br></br>
+pstSigInfo->si_errno		//siginfo_t结构</br>
+pstSigInfo->si_code 		//信号产生的原因</br>
+pstSigInfo->si_addr 		//触发的内存地址，对SIGILL,SIGFPE,SIGSEGV,SIGBUS 信号有意义</br>
+Main函数的SP值</br>
+进程函数名</br>
+Pid</br>
+Tid//线程id</br>
 
-maps
-http://stackoverflow.com/questions/1401359/understanding-linux-proc-id-maps
+maps</br>
+http://stackoverflow.com/questions/1401359/understanding-linux-proc-id-maps</br>
 
-addr2line
-https://linux.die.net/man/1/addr2line
+addr2line</br>
+https://linux.die.net/man/1/addr2line</br>
 
-https://www.ibm.com/developerworks/cn/linux/l-ipc/part2/index1.html
-https://www.ibm.com/developerworks/cn/linux/l-ipc/part2/index2.html
-http://www.mkssoftware.com/docs/man5/siginfo_t.5.asp
+https://www.ibm.com/developerworks/cn/linux/l-ipc/part2/index1.html</br>
+https://www.ibm.com/developerworks/cn/linux/l-ipc/part2/index2.html</br>
+http://www.mkssoftware.com/docs/man5/siginfo_t.5.asp</br>
