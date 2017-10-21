@@ -40,8 +40,8 @@ sigsetjmp()会保存目前堆栈环境，然后将目前的地址作一个记号
 
 控制Coredump写入哪些段
 /proc/%d/coredump_filter
-- (bit 0) anonymous private memory（匿名私有内存段）
-- (bit 1) anonymous shared memory（匿名共享内存段）
+- (bit 0) anonymous private memory（匿名私有内存段）</br>
+- (bit 1) anonymous shared memory（匿名共享内存段）</br>
 - (bit 2) file-backed private memory（file-backed 私有内存段）
 - (bit 3) file-backed shared memory（file-bakced 共享内存段）
 - (bit 4) ELF header pages in file-backed private memory areas (it is effective only if the bit 2 is cleared)（ELF 文件映射，只有在bit 2 复位的时候才起作用）
